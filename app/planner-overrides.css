@@ -1,0 +1,177 @@
+.plannerSection .plannerForm {
+  max-width: 1200px;
+  grid-template-columns:
+    minmax(120px, 0.8fr)
+    minmax(150px, 1fr)
+    minmax(220px, 1.5fr)
+    minmax(130px, 0.8fr)
+    minmax(130px, 0.8fr)
+    minmax(180px, auto);
+}
+
+.plannerSection .timeGuide,
+.plannerSection .planGrid,
+.plannerSection .plannerEmpty {
+  max-width: 1200px;
+}
+
+.plannerSection .stepper {
+  min-width: 130px;
+}
+
+html { scroll-padding-top: 90px; }
+body { overflow-x: hidden; }
+button, a, input, select { touch-action: manipulation; }
+body, button, input, select { font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+h1, h2, h3, .brand { font-family: "Songti TC", "Noto Serif TC", "PMingLiU", serif; }
+
+.nav { min-height: 86px; height: auto; gap: 24px; border-bottom: 2px solid rgba(32,79,70,.12); box-shadow: 0 8px 28px rgba(31,67,59,.08); }
+.nav nav { height: auto; gap: 7px; padding: 7px; border: 1px solid rgba(32,79,70,.13); border-radius: 999px; background: #eef1e8; }
+.nav nav a { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border-radius: 999px; color: #365a51; font-size: 15px; font-weight: 700; letter-spacing: .04em; white-space: nowrap; transition: background .2s ease, color .2s ease, transform .2s ease; }
+.nav nav a:hover { color: #173f38; background: rgba(255,255,255,.75); transform: translateY(-1px); }
+.nav nav a.active { color: #fff; background: var(--pine); box-shadow: 0 5px 14px rgba(23,63,56,.22); }
+.nav nav a.active::after { display: none; }
+
+.brandMark { position: relative; background: var(--pine); border-color: var(--pine); box-shadow: 0 6px 18px rgba(23,63,56,.16); }
+.crossMark,
+.heroCross,
+.plannerCross { position: relative; display: inline-block; }
+.crossMark::before,
+.crossMark::after,
+.heroCross::before,
+.heroCross::after,
+.plannerCross::before,
+.plannerCross::after { content: ""; position: absolute; border-radius: 999px; }
+.crossMark { width: 18px; height: 22px; }
+.crossMark::before { width: 3px; height: 22px; left: 7.5px; top: 0; background: var(--gold); }
+.crossMark::after { width: 16px; height: 3px; left: 1px; top: 7px; background: var(--gold); }
+.heroCross { position: absolute; right: 8vw; top: 76px; width: 120px; height: 170px; opacity: .12; transform: rotate(2deg); pointer-events: none; }
+.heroCross::before { width: 24px; height: 170px; left: 48px; top: 0; background: var(--pine); }
+.heroCross::after { width: 120px; height: 24px; left: 0; top: 45px; background: var(--pine); }
+.plannerIntro { position: relative; }
+.plannerCross { width: 18px; height: 25px; margin-bottom: 14px; opacity: .9; }
+.plannerCross::before { width: 3px; height: 25px; left: 7.5px; top: 0; background: var(--gold); }
+.plannerCross::after { width: 18px; height: 3px; left: 0; top: 8px; background: var(--gold); }
+
+.plannerSection { position: relative; overflow: hidden; }
+.plannerSection::before,
+.plannerSection::after { content: ""; position: absolute; background: rgba(213,158,85,.07); border-radius: 999px; pointer-events: none; }
+.plannerSection::before { width: 34px; height: 290px; right: 7vw; top: 48px; }
+.plannerSection::after { width: 190px; height: 34px; right: calc(7vw - 78px); top: 126px; }
+.plannerSection > * { position: relative; z-index: 1; }
+
+.sectionHead h2::after,
+.sourceNote h2::after,
+.plannerIntro .overline::before { content: none; }
+
+.heroCrossBadge { position: relative; z-index: 2; width: 74px; height: 74px; display: grid; place-items: center; margin: -34px auto 24px; border: 1px solid rgba(32,79,70,.28); border-radius: 50%; background: rgba(255,253,248,.82); box-shadow: 0 14px 38px rgba(32,79,70,.12); }
+.heroCrossBadge::before { content: ""; position: absolute; inset: 7px; border: 1px solid rgba(207,155,88,.42); border-radius: 50%; }
+.heroCrossBadge span,
+.plannerCrossBadge span { position: relative; display: block; width: 28px; height: 38px; }
+.heroCrossBadge span::before,
+.heroCrossBadge span::after,
+.plannerCrossBadge span::before,
+.plannerCrossBadge span::after { content: ""; position: absolute; border-radius: 999px; background: var(--gold); }
+.heroCrossBadge span::before,
+.plannerCrossBadge span::before { width: 6px; height: 38px; left: 11px; top: 0; }
+.heroCrossBadge span::after,
+.plannerCrossBadge span::after { width: 28px; height: 6px; left: 0; top: 11px; }
+.plannerCrossBadge { width: 62px; height: 62px; display: grid; place-items: center; margin: 0 auto 18px; border: 1px solid rgba(213,158,85,.72); border-radius: 50%; color: var(--gold); background: rgba(13,48,42,.5); box-shadow: 0 0 0 7px rgba(213,158,85,.06); font: 34px/1 Georgia, serif; }
+
+.plannerSection input,
+.plannerSection select,
+.plannerSection button { min-height: 46px; }
+.plannerSection .stepper button { min-width: 44px; }
+.plannerSection .stepper strong { min-width: 42px; }
+.plannerSection .plannerField,
+.plannerSection .plannerForm > label { min-width: 0; }
+
+@media (max-width: 1180px) {
+  .plannerSection .plannerForm {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .plannerSection .generateButton {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 860px) {
+  .plannerSection .plannerForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plannerSection { padding: 72px 24px; }
+  .plannerSection .planGrid { grid-template-columns: 1fr; }
+  .plannerSection .planGrid { scroll-margin-top: 158px; }
+  .nav { padding: 10px 22px; gap: 14px; }
+  .nav nav { display: flex; order: 3; width: 100%; overflow-x: auto; justify-content: flex-start; border-radius: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .nav nav::-webkit-scrollbar { display: none; }
+  .nav nav a { flex: 1 0 auto; min-width: 112px; }
+}
+
+@media (max-width: 600px) {
+  html { scroll-padding-top: 72px; }
+  .nav { position: sticky; top: 0; z-index: 50; padding: 8px 12px 9px; flex-wrap: wrap; background: rgba(255,253,248,.97); backdrop-filter: blur(18px); }
+  .nav .brand { gap: 9px; font-size: 18px; white-space: nowrap; letter-spacing: .08em; }
+  .nav .brandMark { width: 36px; height: 36px; }
+  .nav nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; padding: 4px; gap: 3px; overflow: visible; border-radius: 11px; }
+  .nav nav a { min-width: 0; min-height: 40px; padding: 0 2px; font-size: 12px; letter-spacing: 0; }
+  .heroCrossBadge { width: 54px; height: 54px; margin: -34px auto 14px; }
+  .heroCrossBadge span { transform: scale(.78); }
+  .plannerCrossBadge { width: 54px; height: 54px; }
+  .plannerCrossBadge span { transform: scale(.78); }
+  .plannerSection::before { right: -18px; top: 34px; height: 210px; width: 26px; }
+  .plannerSection::after { right: -78px; top: 92px; width: 150px; height: 26px; }
+  .hero { padding: 46px 14px 48px; }
+  .hero h1 { font-size: 31px; line-height: 1.32; margin-top: 13px; }
+  .hero > p { max-width: 330px; margin-inline: auto; font-size: 12px; line-height: 1.7; }
+  .eyebrow { font-size: 9px; letter-spacing: .2em; }
+  .searchShell { margin-top: 22px; }
+  .searchRow input { flex-basis: calc(100% - 48px); min-width: 0; }
+  .searchRow .clear { min-width: 40px; }
+  .hint { -webkit-overflow-scrolling: touch; scrollbar-width: none; gap: 6px; padding-inline: 2px; }
+  .hint > span { display: none; }
+  .hint button { min-height: 34px; white-space: nowrap; padding-inline: 10px; font-size: 10px; }
+  .content { padding-inline: 16px; }
+  .filterPanel { padding: 18px 16px; }
+  .themeTabs, .inlineTabs { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .filterPanel .inlineTabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; overflow: visible; padding-bottom: 0; }
+  .filterPanel .inlineTabs button { width: 100%; min-width: 0; padding: 10px 6px; white-space: normal; line-height: 1.35; }
+  .themeTabs button, .segmented button, .cardActions button, .cardActions a { min-height: 44px; }
+  .resultBar { gap: 10px; }
+  .songGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .songCard, .modernCard { min-width: 0; min-height: 232px; padding: 13px 11px 11px; }
+  .songCard h3 { font-size: 15px; line-height: 1.4; margin: 13px 0 5px; letter-spacing: 0; }
+  .teamName { font-size: 10px; line-height: 1.4; }
+  .number { font-size: 10px; }
+  .speedBadge { padding: 4px 7px; font-size: 9px; }
+  .popularity { margin: 13px 0 10px; gap: 4px; font-size: 9px; }
+  .popularity small { display: none; }
+  .modernCard .tags { gap: 4px; margin-bottom: 9px; max-height: 48px; overflow: hidden; }
+  .tags span { padding: 4px 6px; font-size: 9px; }
+  .cardActions { gap: 5px; padding-top: 9px; }
+  .cardActions button, .cardActions a { min-height: 38px; padding: 5px 2px; font-size: 9px; display: grid; place-items: center; }
+  .plannerSection { padding: 60px 16px; }
+  .plannerSection .plannerForm {
+    grid-template-columns: 1fr;
+    padding: 18px 14px;
+    gap: 17px;
+  }
+
+  .plannerSection .generateButton {
+    grid-column: auto;
+    width: 100%;
+    min-height: 50px;
+  }
+  .plannerSection .stepper { width: 100%; min-width: 0; height: 48px; }
+  .plannerSection .timeGuide { line-height: 1.6; }
+  .plannerSection .plannerEmpty { padding: 42px 18px; }
+  .plannerSection .planCard li { gap: 9px; }
+  .plannerSection .planCard ol { padding-inline: 14px; }
+  .plannerSection .planCard li button { min-width: 44px; }
+  .plannerIntro { margin-bottom: 30px; }
+  .plannerIntro h2 { font-size: 29px; }
+  footer { padding-inline: 20px; }
+}
+
